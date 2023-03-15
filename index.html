@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <style>
+        table,
+        thead,
+        tr,
+        col,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 2px solid black;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .modal {
+
+            display: none;
+            border: 2px solid red;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            z-index: 1;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            right: 0;
+            top: 0;
+
+
+            /* margin:0 auto; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .modalContent form {
+            display: inline-block;
+            /* height:3px; */
+            color: black;
+            margin: 0 auto;
+            background-color: gainsboro;
+            position: relative;
+            top: 95px;
+            left: 40%;
+            border: 2px solid white;
+            margin: 0;
+            padding: 0;
+            border-radius: 5px;
+        }
+
+        .modalContent table {
+            /* padding-bottom: 100px; */
+            margin-top: -40px;
+            margin-bottom: 40px;
+        }
+
+
+        .modalContent .close {
+
+
+            position: absolute;
+
+            z-index: 3;
+            font-size: 30px;
+
+            top: -2px;
+            right: -1.5px;
+            color: gainsboro;
+
+            /* border:2px solid gainsboro; */
+            padding: 0 2px;
+            background-color: red;
+            border-color:red;
+            border-radius: 5px;
+        }
+
+        .modalContent .close:hover {
+            background-color:orangered;
+            color:white;
+            cursor:pointer;
+            /* border:1px solid red; */
+
+        }
+
+        .modalContent .save {
+            position: absolute;
+            background-color: yellow;
+            bottom:5%;
+            right:40%;
+            cursor:pointer;
+
+        }
+
+        .modalContent .save:hover {
+            background-color: orange;
+            color:white;
+        }
+
+        caption {
+            /* text-align: left; */
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px dashed peru;
+
+        }
+    </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+    
+
+    <table id="myTable" >
+        <caption>Student Marks
+            <button onclick="openPopUp()">ADD</button>
+            <button onclick="deleteData()">DELETE</button>
+        </caption>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Roll No.</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </thead>
+        <tbody class="table-body">
+
+            <!-- <tr>
+                <td class="first-name"></td>
+                <td class="last-name"></td>
+                <td class="roll-no"></td>
+                <td class="marks"></td>
+                <td class="grade"></td>
+
+            </tr> -->
+        </tbody>
+    </table>
+
+
+
+    
+
+    <div class="modal">
+        <div class="modalContent">
+
+
+            <form>
+
+                <button class="close" onclick="close()">&times</button>
+                <button class="save" onclick="saveData(event)">SAVE</button>
+
+                <table>
+                    <tr>
+                        <td>First Name:</td>
+                        <td><input type="text" class="first-name"></td>
+                    </tr><br>
+
+                    <tr>
+                        <td> Last Name:</td>
+                        <td><input type="text" class="last-name"></td>
+                    </tr><br>
+
+                    <tr>
+                        <td>Roll Number:</td>
+                        <td><input type="text" class="roll-no"></td>
+                    </tr><br>
+
+                    <tr>
+                        <td>Marks:</td>
+                        <td> <input type="text" class="marks"></td>
+                    </tr><br>
+
+                </table>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="table.js"></script>
+</body>
+
+</html>
