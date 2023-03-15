@@ -3,12 +3,9 @@ var Fail = "Fail";
 var Pass = "Pass";
 var studentData = [
 
-
-
     { firstName: "Olivia", lastName: "Smith", rollNo: 1, marks: 35, grade: Fail },
     { firstName: "Liam", lastName: "Johnson", rollNo: 2, marks: 50, grade: Fail },
     { firstName: "Emma", lastName: "Williams", rollNo: 3, marks: 32, grade: Fail },
-
     // { firstName: "Chloe", lastName: "Rogers", rollNo: 39, marks: 38, grade: Fail },
     // { firstName: "Matthew", lastName: "Adams", rollNo: 40, marks: 66, grade: Pass },
     // { firstName: "Victoria", lastName: "Diaz", rollNo: 41, marks: 71, grade: Pass },
@@ -76,31 +73,24 @@ var studentData = [
 
 
 let table = document.querySelector("#myTable");
-
 let tablebody = document.querySelector(".table-body");
 
 studentData.forEach(function row(valve) {
     let tr = tablebody.insertRow();
-
     Object.values(valve).forEach(function objPush(Val) {
         tr.insertCell().textContent = Val;
     });
 });
 
 
-////POPPING UP
-
+//// POPPING UP
 
 function openPopUp() {
 
     document.querySelector(".modal").style.display = "block";
-    console.log("PopUp");
-
 }
 
-
-
-////FETCHING DATA    
+//// FETCHING DATA    
 
 function fetchingData() {
 
@@ -115,30 +105,22 @@ function fetchingData() {
             elementArray[i].setAttribute("required", "required");
         }
     }
-
     var obj = {
         firstName: fn.value,
         lastName: ln.value,
         rollNo: Number(rno.value),
         marks: Number(mrks.value),
     };
-
     console.log("Fetching Data");
     return obj;
-
-
 }
 
 
-////VALIDATION FUNCTION    
-
+//// VALIDATION FUNCTION    
 
 function validateData(obj) {
 
-
-
     var num = obj.marks;
-
     if (!(Number.isNaN(num))) {
         if (num >= 60) {
             obj["grade"] = "Pass";
@@ -146,32 +128,21 @@ function validateData(obj) {
         else {
             obj["grade"] = "Fail";
         }
-
     }
-
     console.log("Validating Data");
-
 }
 
-
-////SAVING DATA FUNCTION
-
+//// SAVING DATA FUNCTION
 
 function saveData(e) {
 
     e.preventDefault();
-
     var obj = fetchingData();
     document.querySelector(".first-name").value="";
     document.querySelector(".last-name").value="";
     document.querySelector(".roll-no").value="";
     document.querySelector(".marks").value="";
     validateData(obj);
-
-
-    console.log("Saving Data");
-
-    console.log(obj);
     studentData.unshift(obj);
 
     let tr = table.insertRow(1);
@@ -181,45 +152,28 @@ function saveData(e) {
     Object.values(valve).forEach(function objPush(Val) {
         tr.insertCell(i).innerHTML = Val;
         i++;
-        // console.log(Val);
     });
-    document.querySelector(".modal").style.display = "none";
-    
+    document.querySelector(".modal").style.display = "none";   
 
 }
 
-
-
-////DELETING FUNCTION
-
+//// DELETING FUNCTION
 
 function deleteData() {
 
-    // display.removeChild(table);
-    // studentData.pop();
-    // tr.remove();
-    // display.removeChild(table);
-    // console.table(studentData);
     let del = studentData.length;
     studentData.pop();
     if (del > 0) {
         document.querySelector("#myTable").deleteRow(del);
     }
-
-
-
 }
 
-
-////CLOSING FUNCTION
+//// CLOSING FUNCTION
 
 function close() {
-
-    // e.preventDefault();
-
+    
     console.log("close");
     document.querySelector(".modal").style.display = "none";
-
 }
 
 
